@@ -1,0 +1,145 @@
+1)
+
+var enterNumber = prompt("Enter number: ");
+
+for(var i=2; i<=enterNumber ;i++){
+
+        var isPrime = true;
+
+        for(var j=2; j<i; j++){
+            if(i%j === 0 && i !== j){
+                isPrime = false;
+            }
+        }
+        if(isPrime === true){
+            console.log(i);
+        }
+    }
+
+________________________________________________________
+
+2)
+
+function reverseNumber(){
+    
+    let newNumber = '';
+    for(let i = Number.length -1 ; i>=0 ; i--){
+        newNumber += Number[i];  
+    }
+    return newNumber;
+}
+const Number = prompt('enter the number');
+const result=reverseNumber(Number);
+console.log(result);
+
+__________________________________________________________________
+
+3)
+function reverseString(){
+    
+    let newString = '';
+    for(let i = string.length -1 ; i>=0 ; i--){
+        newString += string[i];  
+    }
+    return newString;
+}
+const string = prompt('enter the string');
+const result=reverseString(string);
+console.log(result);
+
+_____________________________________________________________________________
+4)
+var number = [];
+var size = 5;
+for (var a = 0; a < size; a++) {
+    number[a] = prompt('Enter array Element ' + (a + 1));
+}
+console.log(number);
+number.sort(function (a, b) { return a - b });
+number.reverse();
+console.log(number[0]);
+console.log(number[1]);
+____________________________________________________________________________
+
+5)
+
+const number = [16,12,24,17,19,22,35];
+console.log(number.reverse());
+______________________________________________________________
+6)
+
+Number = [4,3,5,8,9]
+var sum = 0;
+for(let n of Number){
+    if(n%2==0){
+        sum += n;
+    }
+}
+if(sum==0){
+    console.log(alert('No even numbers'));
+}
+else{
+    console.log(sum);
+}
+_______________________________________________________________
+7)
+const number = [2,3,4,5,6];
+function fact(number){
+    var i, n;
+    n = 1;
+    for(i=0 ; i<=number ; i++){
+        n=n*1;
+    }
+    return n;
+}
+console.log()
+________________________________________________________________________
+8)
+var vowels = 'CITIUSTECH';
+var count = 0;
+for (var i = 0; i < vowels.length; i++) {
+    if (vowels[i] == 'A' || vowels[i] == 'E' || vowels[i] == 'I' || vowels[i] == 'O' || vowels[i] == 'U') {
+        count++;
+    }
+}
+console.log(count);
+_________________________________________________________________
+9)
+
+var mystr = [];
+var size = 2;
+for (var a = 0; a < size; a++) {
+    mystr[a] = prompt('Enter array string ' + (a + 1));
+}
+console.log(mystr);
+const arr1 = [];
+for (element of mystr) {
+    str = element.split('').reverse().join('');
+    const capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+    str1 = capitalized.split('').reverse().join('');
+    arr1.push(str1);
+}
+mystr = [];
+mystr = mystr.concat(arr1);
+console.log(mystr);
+
+_____________________________________________________________
+
+10)
+function repeatDigit(R) {
+    var result = 0;
+    var count = Array(10).fill(0);
+    while (R > 0) {
+        var remainder = R % 10;
+        count[remainder]++;
+        R = Math.floor(R / 10);
+    }
+    for (var i = 0; i < 10; i++) {
+        if (count[i] > 1) {
+            result++
+        }
+    }
+    return result;
+}
+var R = 7312140905;
+console.log('Number of repeated digits: ' + repeatDigit(R))

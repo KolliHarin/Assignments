@@ -1,0 +1,264 @@
+1)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    username : <input type="text" placeholder="Enter user name" id=name>
+    <br><br>
+    password : <input type="password" placeholder="Enter password" id=password>
+    <br><br>
+    <input type="submit" value="sign in" onclick="Login()">
+    <br><br><br>
+    <h3 id='invalidMessege' style="color: red ;"></h3>
+    <script src="details.js"></script>
+</body>
+</html>
+
+-------------- JS-------------
+function Login() {
+    let username = document.getElementById('name').value;
+    let password = document.getElementById('password').value;
+    let invalidMessege = document.getElementById('invalidMessege');
+
+    if (username === 'citiustech' && password === 'citiustech') {
+        window.open('https://www.google.com/');
+    }
+    else {
+        invalidMessege.innerHTML = 'Invalid credentials <br>Username and Password';
+    }
+}
+
+________________________________________________________________________
+2)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    username : <input type="text" placeholder="Enter user name" id=name>
+    <br><br>
+    password : <input type="password" placeholder="Enter password" id=password>
+    <br><br>
+    <input type="submit" value="sign in" onclick="Login()">
+    <br><br><br>
+    <h3 id='invalidMessege' style="color: red ;"></h3>
+    <script src="details2.js"></script>
+</body>
+</html>
+--------------JS------------------
+document.getElementById('usrname').addEventListener('click',function(){
+    let usrname=document.getElementById('usrname').value;
+    let invalidMessage=document.getElementById('invalidMessage');
+    for(let i=0;i<usrname.length;i++){
+       if(usrname.charAt(i)=="" || usrname.toLowerCase()!="citiustech"){
+           invalidMessage.innerHTML="invalid credentials";
+       }
+       else{
+           invalidMessage.innerHTML="";
+       }
+    }
+   })
+   document.getElementById('password').addEventListener('click',function(){
+       let password=document.getElementById('password').value;
+       let invalidMessage1=document.getElementById('invalidMessage1');
+       for(let i=0;i<password.length;i++){
+          if(password.charAt(i)==""|| password.toLowerCase()!="citiustech"){
+              invalidMessage1.innerHTML="invalid credentials";
+          }
+          else{
+              invalidMessage1.innerHTML="";
+          }
+       }
+      
+      })
+   
+      document.getElementById('usrname').addEventListener('focusout',function(){
+       let usrname=document.getElementById('usrname').value;
+       if(usrname.length>2){
+           document.getElementById('button').disabled=false;
+       }
+      })   
+      function loginButton(){
+       let Uname=document.getElementById('usrname').value;
+       let Pssword=document.getElementById('password').value;
+       let invalidMessage=document.getElementById('invalidMessage');
+       let invalidMessage1=document.getElementById('invalidMessage1');
+       if(Uname.toLowerCase()=="citiustech"&& Pssword.toLowerCase()=="citiustech")
+       {
+           window.open('https://www.google.co.in/')
+   
+       }
+       else
+       {
+           invalidMessage.innerHTML="invalid credentials"
+       }   
+   }
+
+
+______________________________________________________________________
+3)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id="addEmail">
+        <label>Email 1:</label><input type="text" id="emailid-1" name="email id" />
+        <input type="button" id="button1" value="submit" name="submit" />
+    </div><br>
+    <div id="removeemail">
+        <label>Email 2:</label><input type="text" id="emailid-2" name="email2id" />
+        <input type="button" name="removeemail" id="button2" value="RemoveEmail">
+    </div>
+    <script src="details3.js"></script>
+</body>
+</html>
+-------------JS------------------
+document.getElementById("removeemail").style.display = "none";
+document.querySelector("#button1").addEventListener("click", function () {
+  document.getElementById("removeemail").style.display = "block";
+});
+document.querySelector("#button2").addEventListener("click", function () {
+  document.getElementById("removeemail").style.display = "none";
+});
+
+__________________________________________________________________________
+4)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="myCountryname">Country:</label>
+        <select name="countryName" id="myCountryname">
+            <option value="select">Select Country</option>
+            <option value="India">India</option>
+            <option value="Australia">Australia</option>
+            <option value="Spain">Spain</option>
+            <option value="England">England</option>
+        </select>
+        <br>
+        <br>
+
+        <select name="indiaName" id="indiaCountry" style="display:none;">
+            <option value="select city">Select city</option>
+            <option value="bengluru">Bengluru</option>
+            <option value="mumbai">mumbai</option>
+            <option value="pune">pune</option>
+            <option value="jaipur">jaipur</option>
+            <option value="hyderabad">hyderabad</option>
+        </select>
+
+        <select name="australiaName" id="australiaCountry" style="display:none;">
+            <option value="select city">Select city</option>
+            <option value="Sydney">Sydney</option>
+            <option value="melbourne">melbourne</option>
+            <option value="canberra">canberra</option>
+            <option value="perth">perth</option>
+        </select>
+
+        <select name="englandName" id="englandCountry" style="display:none;">
+            <option value="select city">Select city</option>
+            <option value="London">London</option>
+            <option value="oxford">oxford</option>
+            <option value="manchester">manchester</option>
+            <option value="Liverpool">Liverpool</option>
+        </select>
+        <select name="newzealandName" id="newzealandCountry" style="display:none;">
+            <option value="select city">Select city</option>
+            <option value="wellington">wellington</option>
+            <option value="hamilton">hamilton</option>
+            <option value="auckland">auckland</option>
+            <option value="waiheke">waiheke</option>
+        </select>
+    </form>
+    <script src="country.js"></script>
+</body>
+</html>
+
+-------------JS-------------------
+
+var countryIndia=document.getElementById("indiaCountry");
+var countryAustralia=document.getElementById("australiaCountry");
+var countryNewzealand=document.getElementById("spainCountry");
+var countryEngland=document.getElementById("englandCountry");
+
+document.getElementById("myCountryname").addEventListener("click",function(){
+    let countryName=document.querySelector('#myCountryname').value;
+    if(countryName == "India")
+    {
+        countryIndia.style.display="block";
+        countryAustralia.style.display="none";
+        countryNewzealand.style.display="none";
+        countryEngland.style.display="none";
+    }
+    else if(countryName == "Australia")
+    {
+        countryIndia.style.display="none";
+        countryAustralia.style.display="block";
+        countryNewzealand.style.display="none";
+        countryEngland.style.display="none";
+    }
+    else if(countryName=="Newzealand"){
+        
+        countryIndia.style.display="none";
+        countryAustralia.style.display="none";
+        countryNewzealand.style.display="block";
+        countryEngland.style.display="none";
+    }
+    else if(countryName=="England")
+    {     
+        countryIndia.style.display="none";
+        countryAustralia.style.display="none";
+        countryNewzealand.style.display="none";
+        countryEngland.style.display="block";
+    }
+});
+
+______________________________________________________________________
+5)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #img{
+            height: 500px;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <img src="tulip.jpg" id="img" alt="image"/>
+</body>
+</html>
+
+-------------JS--------------
+
+document.querySelector("#img").addEventListener("mouseover",function()
+{
+    document.querySelector("#img").style.width="600px";
+    document.querySelector('#img').style.height="600px";
+}),
+document.querySelector("#img").addEventListener("mouseleave",function()
+{
+    document.querySelector("#img").style.width="400px";
+    document.querySelector('#img').style.height="300px";
+});
+
+
+
+
+
+
+

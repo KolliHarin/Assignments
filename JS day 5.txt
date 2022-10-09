@@ -1,0 +1,216 @@
+1)
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XMLHttpRequest</title>
+  <script>
+    function loadfile() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("get", "Question1.json", true);
+      xhttp.send();
+      xhttp.onreadystatechange = function () {
+        var tbody = document.getElementById("demo").querySelector("tbody");
+        tbody.innerHTML = "";
+        if (this.readyState == 4 && this.status == 200) {
+          JSON.parse(this.responseText).forEach(function (data, index) {
+            tbody.innerHTML += "<tr><td>" + data.id + "</td><td>" + data.name + "</td><td>" + data.price + "</td></tr>";
+          });
+        }
+      };
+    }
+  </script>
+  <style>
+    table,
+    td,
+    tr {
+      border: 5px solid black;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="loadfile()">loadData</button>
+  <table id="demo">
+    <thead>
+      <tr>
+        <td> Id</td>
+        <td>Name</td>
+        <td>Price</td>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</body>
+</html>
+------------------JSON-----------------------------
+[{    "id": 1,
+        "name": "Bike",
+        "Brand": "Ducati",
+        "price": 1000000
+    },
+    {
+        "id": 2,
+        "name": "chocolate",
+        "Brand": "Dairy milk",
+        "price": 100
+    },
+    {
+        "id": 3,
+        "name": "Car",
+        "Brand": "Toyota",
+        "price": 500000
+    },
+    {
+        "id": 4,
+        "name": "Drinks",
+        "Brand": "Red bull",
+        "price": 120
+    }]
+_________________________________________________________________
+3)
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function loadfile() {
+            var xhttp = new XMLHttpRequest();
+            var userId = document.getElementById("txtid").value;
+            var url = "https://jsonplaceholder.typicode.com/posts";
+            xhttp.open("get", url, true);
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    console.log(response);
+                    for (var i = 0; i < response.length; i++) {
+                        if (userId == response[i].id) {
+                            var val = document.getElementById("data");
+                            val.innerHTML = "";
+                            val.innerHTML = response[i].userId + "," + response[i].id + "," + response[i].title;
+                        }
+                    }
+                }
+            };
+        }
+    </script>
+</head>
+<input type="text" id="txtid">
+<button onclick="loadfile()">GetDetails</button>
+<div id="data">
+</div>
+</html>
+_______________________________________________________________________
+4)
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function loading() {
+      const _data = {
+        userId: document.getElementById("userid").value,
+        name: document.getElementById("name").value,
+        username: document.getElementById("username").value,
+        email: document.getElementById("email").value,
+      }
+      var xtp = new XMLHttpRequest();
+      fetch('https://jsonplaceholder.typicode.com/users', {
+        method: "POST",
+        body: JSON.stringify(_data),
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+      }).then(response => response.json()).then(json => console.log(json));
+    }
+  </script>
+</head>
+<body>
+  <form>
+    <input type="text" id="userid">
+    <input type="text" id="name">
+    <input type="text" id="username">
+    <input type="email" id="email">
+    <input type="button" value="submit" onclick="loading()">
+  </form>
+</body>
+</html>
+________________________________________________
+5)
+<html>
+<head> <title>JSON put</title>
+</head>
+<body>
+    <h3>Online JSON put</h3>
+    <input type="button" onclick="JSONonlinePUT()" value="REQUEST">
+    <hr>
+    <script>
+        var info = {
+            "id": 12345,
+            "name": "Harin",
+            "username": "HarinK",
+            "email": "Harin@hello.com",
+            "address": {
+                "street": "MG road",
+                "Apartment ": "paradise ",
+                "city": "bangalore",
+                "zipcode": "12345-67890",
+            },
+            "phone": "0987654321",
+            "website": "hello.org",
+            "company": {
+                "name": "Citius-tech",
+                "based": "healthcare"
+            }
+        }
+        function JSONonlinePUT() {
+            var url = "https://jsonplaceholder.typicode.com/users";
+            fetch(url + "/?id=" + info.id, {
+                method: "PUT",
+                body: JSON.stringify(info),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => res.json()
+                .then(r => console.log("UPDATED")));
+        }
+    </script>
+</body>
+</html>
+__________________________________________________
+6)
+<html>
+<head><title>JSON delete</title>
+</head>
+<body>
+    <h3>Online JSON DELETE</h3>
+    <input type="button" value="REQUEST" onclick="JSONonlineDELETE()">
+    <hr>
+    <script>
+        var info = {
+            "id": 12345,
+            "name": "Harin",
+            "username": "HarinK",
+            "email": "Harin@hello.com",
+            "address": {
+                "street": "MG road",
+                "Apartment ": "paradise ",
+                "city": "bangalore",
+                "zipcode": "12345-67890",
+            },
+            "phone": "0987654321",
+            "website": "hello.org",
+            "company": {
+                "name": "Citius-tech",
+                "based": "healthcare"
+            }
+        }
+        function JSONonlineDELETE() {
+            var url = "https://jsonplaceholder.typicode.com/users/?id=";
+            fetch(url + info.id, {
+                method: "DELETE"
+            }).then((response) => {
+                response.json().then((res) => {
+                    console.log("Record Deleted: ", res);
+                });
+            }).catch(err => console.log(err));
+        }
+    </script>
+</body>
+</html>
